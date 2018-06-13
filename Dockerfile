@@ -7,7 +7,7 @@ RUN apt-get update
 RUN apt-get install -y python3 python3-pip build-essential
 
 COPY requirements.txt /tmp/
-RUN pip install -r /tmp/requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
 
 COPY ./app /app
 
