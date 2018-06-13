@@ -6,11 +6,11 @@ RUN apt-get update
 
 RUN apt-get install -y python3 python3-pip build-essential
 
-COPY . /app
-WORKDIR /app
+COPY requirements.txt /tmp/
+RUN pip install -r /tmp/requirements.txt
 
-RUN pip install -r requirements.txt
+COPY ./app /app
 
-EXPOSE 8080
+EXPOSE 80
 
-CMD ["python", "./main.py"]
+CMD ["python", "/app/main.py"]
